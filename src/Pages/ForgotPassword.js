@@ -4,41 +4,41 @@ const ForgotPassword = () => {
   return (
     <div>
 
-<div class="container-xxl">
-      <div class="authentication-wrapper authentication-basic container-p-y">
-        <div class="authentication-inner py-4">
+<div className="container-xxl">
+      <div className="authentication-wrapper authentication-basic container-p-y">
+        <div className="authentication-inner py-4">
          
-          <div class="card">
-            <div class="card-body">
+          <div className="card">
+            <div className="card-body">
               
-              <div class="app-brand justify-content-center">
-                 <a href="index.html" class="app-brand-link">
-              <span class="app-brand-logo demo">
-                <i class='bx bxs-package'></i>
+              <div className="app-brand justify-content-center">
+                 <a href="index.html" className="app-brand-link">
+              <span className="app-brand-logo demo">
+                <i className='bx bxs-package'></i>
               </span>
-              <span class="app-brand-text demo menu-text fw-bolder ms-2">Delivery App</span>
+              <span className="app-brand-text demo menu-text fw-bolder ms-2">Delivery App</span>
             </a>
               </div>
               
-              <h4 class="mb-2">Forgot Password? 🔒</h4>
-              <p class="mb-4">Enter your email and we'll send you instructions to reset your password</p>
-              <form id="formAuthentication" class="mb-3" action="#" method="POST">
-                <div class="mb-3">
-                  <label for="email" class="form-label">Email</label>
+              <h4 className="mb-2">Forgot Password? <span role="img" aria-label="lock">🔒</span></h4>
+              <p className="mb-4">Enter your email and we'll send you instructions to reset your password</p>
+              <form id="formAuthentication" className="mb-3" action="#" method="POST">
+                <div className="mb-3">
+                  <label for="email" className="form-label">Email</label>
                   <input
                     type="text"
-                    class="form-control"
+                    className="form-control"
                     id="email"
                     name="email"
                     placeholder="Enter your email"
                     autofocus
                   />
                 </div>
-                <Link to="/Dashboard"><button class="btn btn-primary d-grid w-100">Send Reset Link</button></Link>
+                <Link to="/Dashboard"><button className="btn btn-primary d-grid w-100">Send Reset Link</button></Link>
               </form>
-              <div class="text-center">
-                <Link to="/" class="d-flex align-items-center justify-content-center">
-                  <i class="bx bx-chevron-left scaleX-n1-rtl bx-sm"></i>
+              <div className="text-center">
+                <Link to="/" className="d-flex align-items-center justify-content-center">
+                  <i className="bx bx-chevron-left scaleX-n1-rtl bx-sm"></i>
                   Back to login
                 </Link>
               </div>

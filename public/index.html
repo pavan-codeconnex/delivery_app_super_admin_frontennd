@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 
-
 <html>
   <head>
     <meta charset="utf-8" />
@@ -28,26 +27,45 @@
     <link rel="stylesheet" href="assets/vendor/fonts/boxicons.css" />
 
     <!-- Core CSS -->
-    <link rel="stylesheet" href="assets/vendor/css/core.css" class="template-customizer-core-css" />
-    <link rel="stylesheet" href="assets/vendor/css/theme-default.css" class="template-customizer-theme-css" />
+    <link
+      rel="stylesheet"
+      href="assets/vendor/css/core.css"
+      class="template-customizer-core-css"
+    />
+    <link
+      rel="stylesheet"
+      href="assets/vendor/css/theme-default.css"
+      class="template-customizer-theme-css"
+    />
     <link rel="stylesheet" href="assets/css/demo.css" />
 
     <!-- Vendors CSS -->
-    <link rel="stylesheet" href="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css" />
+    <link
+      rel="stylesheet"
+      href="assets/vendor/libs/perfect-scrollbar/perfect-scrollbar.css"
+    />
 
-    <link rel="stylesheet" href="assets/vendor/libs/apex-charts/apex-charts.css" />
-	
-	<link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css" />
-	<link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.bootstrap5.min.css" />
+    <link
+      rel="stylesheet"
+      href="assets/vendor/libs/apex-charts/apex-charts.css"
+    />
 
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/buttons/2.2.3/css/buttons.bootstrap5.min.css"
+    />
 
     <!-- Page CSS -->
-       <!-- Page -->
-       <link rel="stylesheet" href="assets/vendor/css/pages/page-auth.css" />
+    <!-- Page -->
+    <link rel="stylesheet" href="assets/vendor/css/pages/page-auth.css" />
     <!-- Helpers -->
     <script src="assets/vendor/js/helpers.js"></script>
 
-    <script src="assets/js/config.js"></script>
+    <!-- <script src="assets/js/config.js"></script> -->
   </head>
 
   <body>
@@ -63,869 +81,17 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
- <!-- Core JS -->
+    <!-- Core JS -->
 
-	<!-- Modal -->
-  <div class="modal fade" id="addBulkStoreModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addBulkStoreLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="addBulkStoreLabel">CSV Bulk Upload for Stores</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-      <hr>
-        <div class="modal-body bulk-upload">
-         <form action="#" method="POST" enctype="multipart/form-data">
-                      <div class="form-group row">
-                          <label class="col-lg-2 col-form-label">CSV File: </label>
-                          <div class="col-lg-10">
-                                 <input class="form-control" type="file" id="formFile">
-                          </div>
-                      </div>
-                      <div class="text-left mt-3">
-                          <button type="button" class="btn btn-primary" id="downloadSampleCsv" onclick="window.open('assets/sample-csv.csv')">
-                              Download Sample CSV
-                             <i class='bx bx-download' ></i>
-                          </button>
-                      </div>
-            <hr>
-                      <div class="text-right float-right mt-3">
-                          <button type="submit" class="btn btn-primary">
-                              Upload
-                              <i class='bx bx-upload'></i>
-                          </button>
-                      </div>
-                      <input type="hidden" name="" value="">   
-            </form>
-        </div>
-       
-      </div>
-    </div>
-  </div>
+
+
+
+
+
+
+
     
-      <!-- / CSV Bulk Upload Store -->
-    <!-- / CSV Bulk Upload Store -->
-    
-      <!-- / Add New Store -->
-    <!-- / Add New Store -->
-  <!-- Modal -->
-  <div class="modal fade" id="addNewStoreModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addNewStoreModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="addNewStoreModalLabel">Add New Store</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-       <hr>
-        <div class="modal-body store-body">
-          <form action="#" method="POST" enctype="multipart/form-data">
-                      <div class="form-group row">
-                          <label class="col-lg-3 col-form-label">Store Name <span class="text-danger">*</span></label>
-                          <div class="col-lg-9">
-                              <input type="text" class="form-control" name="name" placeholder="Store Name" required="">
-                          </div>
-                      </div>
-                      <div class="form-group row">
-                          <label class="col-lg-3 col-form-label">Description <span class="text-danger">*</span></label>
-                          <div class="col-lg-9">
-                              <input type="text" class="form-control" name="description" placeholder="Store Short Description" required="">
-                          </div>
-                      </div>
-                      <div class="form-group row">
-                          <label class="col-lg-3 col-form-label">Image <span class="text-danger">*</span></label>
-                          <div class="col-lg-9">
-                             <input class="form-control" type="file" id="formFile">
-                          </div>
-                      </div>
-                      <div class="form-group row">
-                          <label class="col-lg-3 col-form-label">Default Rating <span class="text-danger">*</span></label>
-                          <div class="col-lg-9">
-                              <input type="text" class="form-control rating" name="rating" placeholder="Rating from 1-5" required="">
-                          </div>
-                      </div>
-                      <div class="form-group row">
-                          <label class="col-lg-3 col-form-label">Approx Delivery
-                              Time <span class="text-danger">*</span></label>
-                          <div class="col-lg-9">
-                              <input type="text" class="form-control delivery_time" name="delivery_time" placeholder="Time in Minutes" required="">
-                          </div>
-                      </div>
-                      <div class="form-group row">
-                          <label class="col-lg-3 col-form-label">Approx Price for
-                              Two <span class="text-danger">*</span></label>
-                          <div class="col-lg-9">
-                              <input type="text" class="form-control price_range" name="price_range" placeholder="Approx Price for 2 People in $" required="">
-                          </div>
-                      </div>
-                      <hr>
-                      <div class="form-group row">
-                          <label class="col-lg-3 col-form-label">Full Address <span class="text-danger">*</span></label>
-                          <div class="col-lg-9">
-                              <input type="text" class="form-control" name="address" placeholder="Full Address of Store" required="">
-                          </div>
-                      </div>
-                      <div class="form-group row">
-                          <label class="col-lg-3 col-form-label" data-popup="tooltip" title="" data-placement="bottom" data-original-title="Pincode / Postcode / Zip Code">Pincode</label>
-                          <div class="col-lg-9">
-                              <input type="text" class="form-control" name="pincode" placeholder="Pincode / Postcode / Zip Code of Store">
-                          </div>
-                      </div>
-                      <div class="form-group row">
-                          <label class="col-lg-3 col-form-label">Land Mark:</label>
-                          <div class="col-lg-9">
-                              <input type="text" class="form-control" name="landmark" placeholder="Any Near Landmark">
-                          </div>
-                      </div>
-  
-                                          <div class="form-group row">
-                          <div class="col-lg-6">
-                              <label class="col-form-label">Latitude <span class="text-danger">*</span></label><input type="text" class="form-control  gllpLatitude latitude" value="40.6976701" name="latitude" placeholder="Latitude of the Store" required="required">
-                          </div>
-                          <div class="col-lg-6">
-                              <label class="col-form-label">Longitude <span class="text-danger">*</span></label><input type="text" class="form-control  gllpLongitude longitude" value="-74.2598672" name="longitude" placeholder="Longitude of the Store" required="required">
-                          </div>
-                      </div>
-                      
-                      <hr>
-                      <div class="form-group row">
-                          <label class="col-lg-3 col-form-label">Certificate/License Code:</label>
-                          <div class="col-lg-9">
-                              <input type="text" class="form-control" name="certificate" placeholder="Certificate Code or License Code">
-                          </div>
-                      </div>
-                      <div class="form-group row">
-                          <label class="col-lg-3 col-form-label">Store Charge (Packing/Extra):</label>
-                          <div class="col-lg-9">
-                              <input type="text" class="form-control restaurant_charges" name="restaurant_charges" placeholder="Store Charge in $">
-                          </div>
-                      </div>
-                                          <div class="form-group row">
-                          <label class="col-lg-3 col-form-label">Delivery Type <span class="text-danger">*</span></label>
-                          <div class="col-lg-9">
-                              <select class="form-select" id="exampleFormControlSelect1" aria-label="Default select example">
-                            <option selected="">Select Delivery Type</option>
-                            <option value="1">Self Pick Up</option>
-                            <option value="2">Both Delvery & Self Pick Up</option>
-                           
-                          </select>
-                          </div>
-                      </div>
-                                          <div class="form-group row">
-                          <label class="col-lg-3 col-form-label">Delivery Radius in Km:</label>
-                          <div class="col-lg-9">
-                              <input type="text" class="form-control delivery_radius" name="delivery_radius" placeholder="Delivery Radius in KM (If left blank, delivery radius will be set to 10 KM)">
-                          </div>
-                      </div>
-                      <div class="delivery-div">
-                          <div class="form-group row">
-                              <label class="col-lg-3 col-form-label">Delivery Charge
-                                  Type <span class="text-danger">*</span></label>
-                              <div class="col-lg-9">
-                                    <select class="form-select" id="exampleFormControlSelect1" aria-label="Default select example">
-                            <option selected="">Select Delivery Charge Type</option>
-                            <option value="1">Fixed Charge</option>
-                            <option value="2">Dynamic Charge</option>
-                           
-                          </select>
-                              </div>
-                          </div>
-                          <div class="form-group row" id="deliveryCharge">
-                              <label class="col-lg-3 col-form-label">Delivery Charge:</label>
-                              <div class="col-lg-9">
-                                  <input type="text" class="form-control delivery_charges" name="delivery_charges" placeholder="Delivery Charge in ₹">
-                              </div>
-                          </div>
-                          <div id="dynamicChargeDiv" class="hidden">
-                              <div class="form-group">
-                                  <div class="col-lg-12 row">
-                                      <div class="col-lg-3">
-                                          <label class="col-lg-12 col-form-label">Base Delivery Charge:</label>
-                                          <input type="text" class="form-control base_delivery_charge" name="base_delivery_charge" placeholder="In ₹">
-                                      </div>
-                                      <div class="col-lg-3">
-                                          <label class="col-lg-12 col-form-label">Base Delivery Distance:</label>
-                                          <input type="text" class="form-control base_delivery_distance" name="base_delivery_distance" placeholder="In Kilometer (KM)">
-                                      </div>
-                                      <div class="col-lg-3">
-                                          <label class="col-lg-12 col-form-label">Extra Delivery Charge:</label>
-                                          <input type="text" class="form-control extra_delivery_charge" name="extra_delivery_charge" placeholder="In ₹">
-                                      </div>
-                                      <div class="col-lg-3">
-                                          <label class="col-lg-12 col-form-label">Extra Delivery Distance:</label>
-                                          <input type="text" class="form-control extra_delivery_distance" name="extra_delivery_distance" placeholder="In Kilometer (KM)">
-                                      </div>
-                                  </div>
-                                  <p class="help-text mt-2 mb-0 text-muted"> Base delivery charges will be applied to the
-                                      base delivery distance. And for every extra delivery distance, extra delivery charge
-                                      will be applied.
-                              </p></div>
-                          </div>
-                      </div>
-                      
-                      <div class="form-group row">
-                          <label class="col-lg-3 col-form-label">Is Featured?</label>
-                          <div class="col-lg-9">
-                              <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked="">
-                          </div>
-                      </div>
-  
-                      <div class="form-group row">
-                          <label class="col-lg-3 col-form-label">Min Order Price <i class="icon-question3 ml-1" data-popup="tooltip" title="" data-placement="top" data-original-title="Set the value as 0 if not required"></i></label>
-                          <div class="col-lg-9">
-                              <input type="text" class="form-control min_order_price" name="min_order_price" placeholder="Min Cart Value before discount and tax $" value="0" required="required">
-                          </div>
-                      </div>
-  
-                      <div class="form-group row">
-                          <label class="col-lg-3 col-form-label">Commission Rate
-                              % <span class="text-danger">*</span></label>
-                          <div class="col-lg-9">
-                              <input type="text" class="form-control commission_rate" name="commission_rate" placeholder="Commission Rate %" required="" value="0.00">
-                          </div>
-                      </div>
-  
-                                          
-                      <hr>
-                      
-                      <input type="hidden" name="" value="">                    
-            <div class="text-right">
-                          <button type="submit" class="btn btn-primary">
-                              Save Store
-                          </button>
-                      </div>
-                  </form>
-        </div>
-        
-      </div>
-    </div>
-  </div>
-<!-- Modal -->
-<div class="modal fade" id="addCouponModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addCouponLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="addCouponLabel">Add New Coupon</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <hr>
-        <div class="modal-body coupon-new">
-         <form action="#" method="POST">
-                      <div class="form-group row">
-                          <label class="col-lg-3 col-form-label">Coupon Name 	<span class="text-danger">*</span> :</label>
-                          <div class="col-lg-9">
-                              <input type="text" class="form-control" name="name" placeholder="Coupon Name" required="">
-                          </div>
-                      </div>
-                      <div class="form-group row">
-                          <label class="col-lg-3 col-form-label">Coupon Description:</label>
-                          <div class="col-lg-9">
-                              <input type="text" class="form-control" name="description" placeholder="Coupon Description">
-                          </div>
-                      </div>
-                      <div class="form-group row">
-                          <label class="col-lg-3 col-form-label">Coupon Code <span class="text-danger">*</span> :</label>
-                          <div class="col-lg-9">
-                              <input type="text" class="form-control" name="code" placeholder="Coupon Code" required="">
-                          </div>
-                      </div>
-                      <div class="form-group row">
-                          <label class="col-lg-3 col-form-label">Dicsount Type <span class="text-danger">*</span> :</label>
-                          <div class="col-lg-9">
-                             <select id="defaultSelect" class="form-select">
-                            <option>Please select</option>
-                            <option value="1">Fixed Amount Discount</option>
-                            <option value="2">Percentage Discount</option>
-                            
-                          </select>
-                          </div>
-                      </div>
-                      <div class="form-group row hidden" id="max_discount">
-                          <label class="col-lg-3 col-form-label">Max Discount</label>
-                          <div class="col-lg-9">
-                              <input type="text" class="form-control max_discount" name="max_discount" placeholder="Max discount applicable in $">
-                          </div>
-                      </div>
-                      <div class="form-group row">
-                          <label class="col-lg-3 col-form-label">Coupon
-                              Discount <span class="text-danger">*</span> :</label>
-                          <div class="col-lg-9">
-                              <input type="text" class="form-control  discount" name="discount" placeholder="Coupon Discount" required="">
-                          </div>
-                      </div>
-                      <div class="form-group">
-                          <div class="row">
-                              <label class="col-lg-3 col-form-label"><span class="text-danger">*</span>Expiry
-                                  Date:</label>
-                              <div class="col-lg-9">
-                                  <input class="form-control" type="date" value="2021-06-18" id="date-input">
-                              </div>
-                          </div>
-                      </div>
-                      <div class="form-group row">
-                          <label class="col-lg-3 col-form-label">Coupon Applicable
-                              Stores <span class="text-danger">*</span> :</label>
-                          <div class="col-lg-9">
-                               <select multiple data-style="bg-white rounded-pill px-4 py-3 shadow-sm " class="selectpicker w-100">
-                  <option>United Kingdom</option>
-                  <option>United States</option>
-                  <option>France</option>
-                  <option>Germany</option>
-                  <option>Italy</option>
-              </select>
-                          </div>
-                      </div>
-                      
-                      <div class="form-group row mt-3">
-                          <label class="col-lg-3 col-form-label">Max number of
-                              use in total <span class="text-danger">*</span> :</label>
-                          <div class="col-lg-9">
-                              <input type="text" class="form-control max_count" name="max_count" placeholder="Max number of use" required="">
-                          </div>
-                      </div>
-                      <div class="form-group row">
-                          <label class="col-lg-3 col-form-label">Min Subtotal</label>
-                          <div class="col-lg-9">
-                              <input type="text" class="form-control min_subtotal" name="min_subtotal" placeholder="Min subtotal required for coupon in $">
-                          </div>
-                      </div>
-                      <div class="form-group row">
-                          <label class="col-lg-3 col-form-label">Subtotal not reached message</label>
-                          <div class="col-lg-9">
-                              <input type="text" class="form-control name="" placeholder="Subtotal not reached message">
-                          </div>
-                      </div>
-                      <div class="form-group row">
-                          <label class="col-lg-3 col-form-label">Coupon User
-                              Type <span class="text-danger">*</span> :</label>
-                          <div class="col-lg-9">
-                            <select id="defaultSelect" class="form-select">
-                            <option>Default select</option>
-                            <option value="1">Unlimited times for all user</option>
-                            <option value="2">Once for new user for first order</option>
-                            <option value="3">Once per user</option>
-                            <option value="4">Define custom limit per user</option>
-                          </select>  
-                          </div>
-                      </div>
-                   
-                     
-                      <div class="form-group row">
-                          <label class="col-lg-3 col-form-label">Is Active?</label>
-                          <div class="col-lg-9 d-flex align-items-center">
-                              <div class="checkbox checkbox-switchery">
-                                 <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked="">
-                                  
-                              </div>
-                          </div>
-                      </div>
-                      <hr>
-                         <div class="text-right float-right">
-                          <button type="submit" class="btn btn-primary">
-                              SAVE
-                          </button>
-                      </div>
-                  </form>
-        </div>
-       
-      </div>
-    </div>
-  </div>
 
-  <!-- Modal -->
-<div class="modal fade" id="managerolesModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="managerolesLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="addBulkStoreLabel">View & Edit User</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <hr>
-        <div class="modal-body bulk-upload">
-         <form action="#" method="POST" enctype="multipart/form-data">
-                      <div class="form-group row">
-                          <label class="col-lg-3 col-form-label">Name:</label>
-                          <div class="col-lg-9">
-                              <input type="text" name="name" class="form-control" placeholder="Enter Full Name" required="" autocomplete="new-name">
-                          </div>
-                      </div>
-                      <div class="form-group row  mt-3">
-                          <label class="col-lg-3 col-form-label">Email:</label>
-                          <div class="col-lg-9">
-                              <input type="text" name="email" class="form-control" placeholder="Enter Email Address" required="" autocomplete="new-email">
-                          </div>
-                      </div>
-                      <div class="form-group row  mt-3">
-                          <label class="col-lg-3 col-form-label">Phone:</label>
-                          <div class="col-lg-9">
-                              <input type="text" name="phone" class="form-control" placeholder="Enter Phone Number" required="" autocomplete="new-phone">
-                          </div>
-                      </div>
-                      <div class="form-group row form-group-feedback form-group-feedback-right  mt-3">
-                          <label class="col-lg-3 col-form-label">Password:</label>
-                          <div class="col-lg-9">
-                              <input name="password" type="password" class="form-control" placeholder="Enter Password (min 6 characters)" required="" autocomplete="new-password" id="newUserPassword">
-                          </div>
-                         
-                      </div>
-                      <div class="form-group row mt-3">
-                          <label class="col-lg-3 col-form-label">Role:</label>
-                          <div class="col-lg-9">
-                          <select class="form-select" id="exampleFormControlSelect1" aria-label="Default select example">
-                            <option value="Store Owner" class="text-capitalize">Store Owner</option>
-                            <option value="Delivery Guy" class="text-capitalize" id="delivery-guy">Delivery Guy</option>
-                            <option value="Staff" class="text-capitalize">Staff</option>
-                          </select>
-                              
-                          </div>
-                      </div>
-                      
-                      <div class="text-right mt-4">
-                          <button type="submit" class="btn btn-danger">
-                              Ban User
-                              <i class="icon-database-insert ml-1"></i></button>
-                              <button type="submit" class="btn btn-info float-right">
-                             Update
-                              <i class="icon-database-insert ml-1"></i></button>
-                      </div>
-                      
-                      
-                      
-                                    </form>
-        </div>
-       
-      </div>
-    </div>
-  </div>
-      
-          
-      
-          <!-- / Add New Store -->
-      <!-- / Add New Store -->
-  <!-- Modal -->
-  <div class="modal fade" id="addNewUserModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addNewUserModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="addNewUserModalLabel">Add New User</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-         <hr>
-        <div class="modal-body store-body">
-          <form action="#" method="POST" enctype="multipart/form-data">
-                      <div class="form-group row">
-                          <label class="col-lg-3 col-form-label">Name:</label>
-                          <div class="col-lg-9">
-                              <input type="text" name="name" class="form-control" placeholder="Enter Full Name" required="" autocomplete="new-name">
-                          </div>
-                      </div>
-                      <div class="form-group row">
-                          <label class="col-lg-3 col-form-label">Email:</label>
-                          <div class="col-lg-9">
-                              <input type="text" name="email" class="form-control" placeholder="Enter Email Address" required="" autocomplete="new-email">
-                          </div>
-                      </div>
-                      <div class="form-group row">
-                          <label class="col-lg-3 col-form-label">Phone:</label>
-                          <div class="col-lg-9">
-                              <input type="text" name="phone" class="form-control" placeholder="Enter Phone Number" required="" autocomplete="new-phone">
-                          </div>
-                      </div>
-                      <div class="form-group row form-group-feedback form-group-feedback-right">
-                          <label class="col-lg-3 col-form-label">Password:</label>
-                          <div class="col-lg-9">
-                              <input name="password" type="password" class="form-control" placeholder="Enter Password (min 6 characters)" required="" autocomplete="new-password" id="newUserPassword">
-                          </div>
-                         
-                      </div>
-                      <div class="form-group row">
-                          <label class="col-lg-3 col-form-label">Role:</label>
-                          <div class="col-lg-9">
-                          <select class="form-select" id="exampleFormControlSelect1" aria-label="Default select example">
-                            <option selected="">Open this select menu</option>
-                            <option value="Store Owner" class="text-capitalize">Store Owner</option>
-                            <option value="Delivery Guy" class="text-capitalize" id="delivery-guy">Delivery Guy</option>
-                            <option value="Staff" class="text-capitalize">Staff</option>
-                          </select>
-                              
-                          </div>
-                      </div>
-                      
-                      <div class="text-right">
-                          <button type="submit" class="btn btn-primary">
-                              SAVE
-                              <i class="icon-database-insert ml-1"></i></button>
-                      </div>
-                      <input type="hidden" name="token" value="">                </form>
-        </div>
-        
-      </div>
-    </div>
-  </div>
-      
-      
-      <!-- / Add New Store -->
-      <!-- / Add New Store -->
-
-
-	<!-- Modal -->
-<div class="modal fade" id="storerolesModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="storerolesLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="addBulkStoreLabel">View & Edit Store Owner</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <hr>
-        <div class="modal-body bulk-upload">
-         <form action="#" method="POST" enctype="multipart/form-data">
-                      <div class="form-group row">
-                          <label class="col-lg-3 col-form-label">Name:</label>
-                          <div class="col-lg-9">
-                              <input type="text" name="name" class="form-control" placeholder="Enter Full Name" required="" autocomplete="new-name">
-                          </div>
-                      </div>
-                      <div class="form-group row  mt-3">
-                          <label class="col-lg-3 col-form-label">Email:</label>
-                          <div class="col-lg-9">
-                              <input type="text" name="email" class="form-control" placeholder="Enter Email Address" required="" autocomplete="new-email">
-                          </div>
-                      </div>
-                      <div class="form-group row  mt-3">
-                          <label class="col-lg-3 col-form-label">Phone:</label>
-                          <div class="col-lg-9">
-                              <input type="text" name="phone" class="form-control" placeholder="Enter Phone Number" required="" autocomplete="new-phone">
-                          </div>
-                      </div>
-                      <div class="form-group row form-group-feedback form-group-feedback-right  mt-3">
-                          <label class="col-lg-3 col-form-label">Password:</label>
-                          <div class="col-lg-9">
-                              <input name="password" type="password" class="form-control" placeholder="Enter Password (min 6 characters)" required="" autocomplete="new-password" id="newUserPassword">
-                          </div>
-                         
-                      </div>
-                     
-                      
-                      <div class="text-right mt-4">
-                          <button type="submit" class="btn btn-danger">
-                              Ban Store Owners
-                              <i class="icon-database-insert ml-1"></i></button>
-                              <button type="submit" class="btn btn-info float-right">
-                             Update
-                              <i class="icon-database-insert ml-1"></i></button>
-                      </div>
-                      
-                      
-                      
-                                    </form>
-        </div>
-       
-      </div>
-    </div>
-  </div>
-      
-          
-      
-          <!-- / Add New Store -->
-      <!-- / Add New Store -->
-  <!-- Modal -->
-  <div class="modal fade" id="addNewstoreModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addNewUserstoreLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="addNewstoreModalLabel">Add Store Owner</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-         <hr>
-        <div class="modal-body store-body">
-          <form action="#" method="POST" enctype="multipart/form-data">
-                      <div class="form-group row">
-                          <label class="col-lg-3 col-form-label">Name:</label>
-                          <div class="col-lg-9">
-                              <input type="text" name="name" class="form-control" placeholder="Enter Full Name" required="" autocomplete="new-name">
-                          </div>
-                      </div>
-                      <div class="form-group row">
-                          <label class="col-lg-3 col-form-label">Email:</label>
-                          <div class="col-lg-9">
-                              <input type="text" name="email" class="form-control" placeholder="Enter Email Address" required="" autocomplete="new-email">
-                          </div>
-                      </div>
-                      <div class="form-group row">
-                          <label class="col-lg-3 col-form-label">Phone:</label>
-                          <div class="col-lg-9">
-                              <input type="text" name="phone" class="form-control" placeholder="Enter Phone Number" required="" autocomplete="new-phone">
-                          </div>
-                      </div>
-                      <div class="form-group row form-group-feedback form-group-feedback-right">
-                          <label class="col-lg-3 col-form-label">Password:</label>
-                          <div class="col-lg-9">
-                              <input name="password" type="password" class="form-control" placeholder="Enter Password (min 6 characters)" required="" autocomplete="new-password" id="newUserPassword">
-                          </div>
-                         
-                      </div>
-                      <div class="form-group row">
-                          <label class="col-lg-3 col-form-label">Role:</label>
-                          <div class="col-lg-9">
-                           <input name="store" type="password" class="form-control" placeholder="Store Owner" required="" autocomplete="new-storeuser" id="newstoreuserPassword">
-                              
-                          </div>
-                      </div>
-                      
-                      <div class="text-right">
-                          <button type="submit" class="btn btn-primary">
-                              SAVE
-                              <i class="icon-database-insert ml-1"></i></button>
-                      </div>
-                      <input type="hidden" name="token" value="">                </form>
-        </div>
-        
-      </div>
-    </div>
-  </div>
-      
-      
-      <!-- / Add New Store -->
-      <!-- / Add New Store -->
-
-
-	<!-- Modal -->
-<div class="modal fade" id="deliveryrolesModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="deliveryrolesLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="addBulkdeliveryLabel">View & Edit Delivery Guy</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <hr>
-        <div class="modal-body bulk-upload">
-         <form action="#" method="POST" enctype="multipart/form-data">
-                      <div class="form-group row">
-                          <label class="col-lg-3 col-form-label">Name:</label>
-                          <div class="col-lg-9">
-                              <input type="text" name="name" class="form-control" placeholder="Enter Full Name" required="" autocomplete="new-name">
-                          </div>
-                      </div>
-                      <div class="form-group row  mt-3">
-                          <label class="col-lg-3 col-form-label">Email:</label>
-                          <div class="col-lg-9">
-                              <input type="text" name="email" class="form-control" placeholder="Enter Email Address" required="" autocomplete="new-email">
-                          </div>
-                      </div>
-                      <div class="form-group row  mt-3">
-                          <label class="col-lg-3 col-form-label">Phone:</label>
-                          <div class="col-lg-9">
-                              <input type="text" name="phone" class="form-control" placeholder="Enter Phone Number" required="" autocomplete="new-phone">
-                          </div>
-                      </div>
-                      <div class="form-group row form-group-feedback form-group-feedback-right  mt-3">
-                          <label class="col-lg-3 col-form-label">Password:</label>
-                          <div class="col-lg-9">
-                              <input name="password" type="password" class="form-control" placeholder="Enter Password (min 6 characters)" required="" autocomplete="new-password" id="newUserPassword">
-                          </div>
-                         
-                      </div>
-                     
-                      
-                      <div class="text-right mt-4">
-                          <button type="submit" class="btn btn-danger">
-                              Ban Delivery Guy
-                              <i class="icon-database-insert ml-1"></i></button>
-                              <button type="submit" class="btn btn-info float-right">
-                             Update
-                              <i class="icon-database-insert ml-1"></i></button>
-                      </div>
-                      
-                      
-                      
-                                    </form>
-        </div>
-       
-      </div>
-    </div>
-  </div>
-      
-          
-      
-          <!-- / Add New Store -->
-      <!-- / Add New Store -->
-  <!-- Modal -->
-  <div class="modal fade" id="addNewdeliveryModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addNewUserdeliveryLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="addNewdeliveryModalLabel">Add Delivery Guy</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-         <hr>
-        <div class="modal-body store-body">
-          <form action="#" method="POST" enctype="multipart/form-data">
-                      <div class="form-group row">
-                          <label class="col-lg-3 col-form-label">Name:</label>
-                          <div class="col-lg-9">
-                              <input type="text" name="name" class="form-control" placeholder="Enter Full Name" required="" autocomplete="new-name">
-                          </div>
-                      </div>
-                      <div class="form-group row">
-                          <label class="col-lg-3 col-form-label">Email:</label>
-                          <div class="col-lg-9">
-                              <input type="text" name="email" class="form-control" placeholder="Enter Email Address" required="" autocomplete="new-email">
-                          </div>
-                      </div>
-                      <div class="form-group row">
-                          <label class="col-lg-3 col-form-label">Phone:</label>
-                          <div class="col-lg-9">
-                              <input type="text" name="phone" class="form-control" placeholder="Enter Phone Number" required="" autocomplete="new-phone">
-                          </div>
-                      </div>
-                      <div class="form-group row form-group-feedback form-group-feedback-right">
-                          <label class="col-lg-3 col-form-label">Password:</label>
-                          <div class="col-lg-9">
-                              <input name="password" type="password" class="form-control" placeholder="Enter Password (min 6 characters)" required="" autocomplete="new-password" id="newUserPassword">
-                          </div>
-                         
-                      </div>
-                      <div class="form-group row">
-                          <label class="col-lg-3 col-form-label">Role:</label>
-                          <div class="col-lg-9">
-                           <input name="store" type="password" class="form-control" placeholder="Delivery Guy" required="" autocomplete="new-storeuser" id="newstoreuserPassword">
-                              
-                          </div>
-                      </div>
-                      
-                      <div class="text-right">
-                          <button type="submit" class="btn btn-primary">
-                              SAVE
-                              <i class="icon-database-insert ml-1"></i></button>
-                      </div>
-                      <input type="hidden" name="token" value="">                </form>
-        </div>
-        
-      </div>
-    </div>
-  </div>
-      
-      
-      <!-- / Add New Store -->
-      <!-- / Add New Store -->
-      <!-- Modal -->
-<div class="modal fade" id="staffrolesModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staffrolesLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="addBulkstaffLabel">View & Edit Staff</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <hr>
-        <div class="modal-body bulk-upload">
-         <form action="#" method="POST" enctype="multipart/form-data">
-                      <div class="form-group row">
-                          <label class="col-lg-3 col-form-label">Name:</label>
-                          <div class="col-lg-9">
-                              <input type="text" name="name" class="form-control" placeholder="Enter Full Name" required="" autocomplete="new-name">
-                          </div>
-                      </div>
-                      <div class="form-group row  mt-3">
-                          <label class="col-lg-3 col-form-label">Email:</label>
-                          <div class="col-lg-9">
-                              <input type="text" name="email" class="form-control" placeholder="Enter Email Address" required="" autocomplete="new-email">
-                          </div>
-                      </div>
-                      <div class="form-group row  mt-3">
-                          <label class="col-lg-3 col-form-label">Phone:</label>
-                          <div class="col-lg-9">
-                              <input type="text" name="phone" class="form-control" placeholder="Enter Phone Number" required="" autocomplete="new-phone">
-                          </div>
-                      </div>
-                      <div class="form-group row form-group-feedback form-group-feedback-right  mt-3">
-                          <label class="col-lg-3 col-form-label">Password:</label>
-                          <div class="col-lg-9">
-                              <input name="password" type="password" class="form-control" placeholder="Enter Password (min 6 characters)" required="" autocomplete="new-password" id="newUserPassword">
-                          </div>
-                         
-                      </div>
-                     
-                      
-                      <div class="text-right mt-4">
-                          <button type="submit" class="btn btn-danger">
-                              Ban Staff
-                              <i class="icon-database-insert ml-1"></i></button>
-                              <button type="submit" class="btn btn-info float-right">
-                             Update
-                              <i class="icon-database-insert ml-1"></i></button>
-                      </div>
-                      
-                      
-                      
-                                    </form>
-        </div>
-       
-      </div>
-    </div>
-  </div>
-      
-          
-      
-          <!-- / Add New Store -->
-      <!-- / Add New Store -->
-  <!-- Modal -->
-  <div class="modal fade" id="addNewstaffModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="addNewstaffModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="addNewUserModalLabel">Add Staff</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-         <hr>
-        <div class="modal-body store-body">
-          <form action="#" method="POST" enctype="multipart/form-data">
-                      <div class="form-group row">
-                          <label class="col-lg-3 col-form-label">Name:</label>
-                          <div class="col-lg-9">
-                              <input type="text" name="name" class="form-control" placeholder="Enter Full Name" required="" autocomplete="new-name">
-                          </div>
-                      </div>
-                      <div class="form-group row">
-                          <label class="col-lg-3 col-form-label">Email:</label>
-                          <div class="col-lg-9">
-                              <input type="text" name="email" class="form-control" placeholder="Enter Email Address" required="" autocomplete="new-email">
-                          </div>
-                      </div>
-                      <div class="form-group row">
-                          <label class="col-lg-3 col-form-label">Phone:</label>
-                          <div class="col-lg-9">
-                              <input type="text" name="phone" class="form-control" placeholder="Enter Phone Number" required="" autocomplete="new-phone">
-                          </div>
-                      </div>
-                      <div class="form-group row form-group-feedback form-group-feedback-right">
-                          <label class="col-lg-3 col-form-label">Password:</label>
-                          <div class="col-lg-9">
-                              <input name="password" type="password" class="form-control" placeholder="Enter Password (min 6 characters)" required="" autocomplete="new-password" id="newUserPassword">
-                          </div>
-                         
-                      </div>
-                      <div class="form-group row">
-                          <label class="col-lg-3 col-form-label">Role:</label>
-                          <div class="col-lg-9">
-                           <input name="store" type="password" class="form-control" placeholder="Staff" required="" autocomplete="new-storeuser" id="newstoreuserPassword">
-                              
-                          </div>
-                      </div>
-                      
-                      <div class="text-right">
-                          <button type="submit" class="btn btn-primary">
-                              SAVE
-                              <i class="icon-database-insert ml-1"></i></button>
-                      </div>
-                      <input type="hidden" name="token" value="">                </form>
-        </div>
-        
-      </div>
-    </div>
-  </div>
-      
-      
-      <!-- / Add New Store -->
-      <!-- / Add New Store -->
     <!-- build:js assets/vendor/js/core.js -->
     <script src="assets/vendor/libs/jquery/jquery.js"></script>
     <script src="assets/vendor/libs/popper/popper.js"></script>
@@ -934,46 +100,46 @@
 
     <script src="assets/vendor/js/menu.js"></script>
     <!-- endbuild -->
-	
-	 <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
-	 <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
-	 <script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
-	 <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.bootstrap5.min.js"></script>
-	 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
-	 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
-	 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
-	 <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
-	 <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
-	 <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.colVis.min.js"></script>
+
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.bootstrap5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.colVis.min.js"></script>
 
     <!-- Vendors JS -->
 
     <!-- Main JS -->
-    <script src="assets/js/main.js"></script>
+    <!-- <script src="assets/js/main.js"></script> -->
 
     <!-- Page JS -->
-    <script src="assets/js/dashboards-analytics.js"></script>
+    <!-- <script src="assets/js/dashboards-analytics.js"></script> -->
 
     <!-- Place this tag in your head or just before your close body tag. -->
     <script async defer src="https://buttons.github.io/buttons.js"></script>
-	
-	<script>
-	$(document).ready(function() {
-    var table = $('#example').DataTable( {
-        lengthChange: false,
-        buttons: [
-            {
-                extend: 'csv',
-                split: [ 'pdf', 'excel'],
-            }
-        ]
-    } );
- 
-    table.buttons().container()
-        .appendTo( '#example_wrapper .col-md-6:eq(0)' );
-} );
-	
-	</script>
+
+    <script>
+      // $(document).ready(function() {
+      //   var table = $("#example").DataTable({
+      //     lengthChange: false,
+      //     buttons: [
+      //       {
+      //         extend: "csv",
+      //         split: ["pdf", "excel"],
+      //       },
+      //     ],
+      //   });
+
+      //   table
+      //     .buttons()
+      //     .container()
+      //     .appendTo("#example_wrapper .col-md-6:eq(0)");
+      // });
+    </script>
   </body>
 </html>
-
