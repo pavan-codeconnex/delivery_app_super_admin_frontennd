@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Footer from "../Components/Footer";
 import Header from "../Components/Header";
 import Sidebar from "../Components/Sidebar";
 import { Link } from "react-router-dom";
 import Table from "../Components/Table";
-
+import axios from "../api/server_base_url";
+const CREATE_PROMO = "/createPromotion";
+const GET_PROMOS = "/getAllPromotions";
 const Promotions = () => {
   const headers = [
     "NAME",
@@ -16,36 +18,152 @@ const Promotions = () => {
     "EXPIRY DATE",
     "ACTION",
   ];
-  const rows = [
-    [
-      "New10",
-      "The halal guys",
-      "NEW10",
-      <button type="button" className="btn rounded-pill btn-outline-primary">
-        Amount
-      </button>,
-      "₹ 30",
-      <button type="button" className="btn rounded-pill btn-outline-primary">
-        Active
-      </button>,
-      <div className="form-check form-switch mb-2">
-        1 year ago (2020-10-31)
-      </div>,
-      <>
-        <a href="#" className="btn btn-sm btn-primary edit-btn">
-          {" "}
-          Edit
-        </a>
-        <a href="#" className="btn btn-sm btn-info">
-          {" "}
-          View
-        </a>
-      </>,
-    ],
+  const [rows, setRows] = useState([]);
+  const [data, setData] = useState({ is_active: false });
+  const [promoAdded, setPromoAdded] = useState(0);
+
+  const inputs = [
+    {
+      input_type: "text",
+      label_name: "COUPON NAME",
+      input_name: "coupon_name",
+      placeholder: "Coupon Name",
+    },
+    {
+      input_type: "text",
+      label_name: "COUPON DESCRIPTION",
+      input_name: "coupon_description",
+      placeholder: "Coupon Description",
+    },
+    {
+      input_type: "text",
+      label_name: "COUPON CODE",
+      input_name: "coupon_code",
+      placeholder: "Coupon Code",
+    },
+    {
+      input_type: "select",
+      label_name: "DISCOUNT TYPE",
+      input_name: "discount_type",
+      options: [
+        [1, "Fixed Amount Discount"],
+        [2, "Percentage Discount"],
+      ],
+    },
+    {
+      input_type: "text",
+      label_name: "MAX DISCOUNT",
+      input_name: "max_discount",
+      placeholder: "Max discount applicable in $",
+    },
+    {
+      input_type: "text",
+      label_name: "COUPON DISCOUNT",
+      input_name: "coupon_discount",
+      placeholder: "Coupon Discount",
+    },
+    {
+      input_type: "date",
+      label_name: "EXPIRY DATE",
+      input_name: "expiry_date",
+    },
+    {
+      input_type: "number",
+      label_name: "MAX NUMBER OF TIMES USABLE",
+      input_name: "max_applicable_times",
+      placeholder: "MAX NUMBER OF TIMES USABLE",
+    },
+    {
+      input_type: "number",
+      label_name: "MIN SUBTOTAL",
+      input_name: "min_value",
+      placeholder: "Min subtotal required for coupon in $",
+    },
+    {
+      input_type: "text",
+      label_name: "SUBTOTAL NOT REACHED MESSAGE",
+      input_name: "min_value_error_msg",
+      placeholder: "Subtotal not reached message",
+    },
+    {
+      input_type: "select",
+      label_name: "COUPON USER TYPE",
+      input_name: "coupon_user_type",
+      options: [
+        [1, "Unlimited times for all user"],
+        [2, "Once for new user for first order"],
+        [3, "Once per user"],
+        [4, "Define custom limit per user"],
+      ],
+    },
+    {
+      input_type: "checkbox",
+      label_name: "IS ACTIVE",
+      input_name: "is_active",
+    },
   ];
+
+  const handleChange = (e) => {
+    let name = e.target.name;
+    let value = e.target.value;
+    setData({ ...data, [name]: value });
+    console.log(data);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    axios.post(CREATE_PROMO, data).then((response) => {
+      if (response.status === 200) {
+        alert("promotion created successfully");
+        setData({});
+        setPromoAdded(promoAdded + 1);
+      } else {
+        alert("something went wrong");
+      }
+    });
+  };
+
+  useEffect(() => {
+    let dummy_rows = [];
+    axios.get(GET_PROMOS).then((result) => {
+      if (result.status === 200) {
+        result.data.result.forEach((item) => {
+          dummy_rows = [
+            ...dummy_rows,
+            [
+              item.coupon_name,
+              "dummy",
+              item.coupon_code,
+              item.discount_type,
+              item.max_discount_amount,
+              <button
+                type="button"
+                className="btn rounded-pill btn-outline-primary"
+              >
+                Active
+              </button>,
+              item.expiry_date,
+              <>
+                <a href="#" className="btn btn-sm btn-primary edit-btn">
+                  {" "}
+                  Edit
+                </a>
+                <a href="#" className="btn btn-sm btn-info">
+                  {" "}
+                  View
+                </a>
+              </>
+            ],
+          ];
+        });
+        setRows(dummy_rows)
+      }
+    });
+  }, [promoAdded]);
+
   return (
     <>
-      {/* <!--addCouponModal Modal --> */}
+      {/* add promotions model */}
       <div
         class="modal fade"
         id="addCouponModal"
@@ -69,190 +187,95 @@ const Promotions = () => {
               ></button>
             </div>
             <hr />
+
             <div class="modal-body coupon-new">
-              <form action="#" method="POST">
-                <div class="form-group row">
-                  <label class="col-lg-3 col-form-label">
-                    Coupon Name <span class="text-danger">*</span> :
-                  </label>
-                  <div class="col-lg-9">
-                    <input
-                      type="text"
-                      class="form-control"
-                      name="name"
-                      placeholder="Coupon Name"
-                      required=""
-                    />
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <label class="col-lg-3 col-form-label">
-                    Coupon Description:
-                  </label>
-                  <div class="col-lg-9">
-                    <input
-                      type="text"
-                      class="form-control"
-                      name="description"
-                      placeholder="Coupon Description"
-                    />
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <label class="col-lg-3 col-form-label">
-                    Coupon Code <span class="text-danger">*</span> :
-                  </label>
-                  <div class="col-lg-9">
-                    <input
-                      type="text"
-                      class="form-control"
-                      name="code"
-                      placeholder="Coupon Code"
-                      required=""
-                    />
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <label class="col-lg-3 col-form-label">
-                    Dicsount Type <span class="text-danger">*</span> :
-                  </label>
-                  <div class="col-lg-9">
-                    <select id="defaultSelect" class="form-select">
-                      <option>Please select</option>
-                      <option value="1">Fixed Amount Discount</option>
-                      <option value="2">Percentage Discount</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="form-group row hidden" id="max_discount">
-                  <label class="col-lg-3 col-form-label">Max Discount</label>
-                  <div class="col-lg-9">
-                    <input
-                      type="text"
-                      class="form-control max_discount"
-                      name="max_discount"
-                      placeholder="Max discount applicable in $"
-                    />
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <label class="col-lg-3 col-form-label">
-                    Coupon Discount <span class="text-danger">*</span> :
-                  </label>
-                  <div class="col-lg-9">
-                    <input
-                      type="text"
-                      class="form-control  discount"
-                      name="discount"
-                      placeholder="Coupon Discount"
-                      required=""
-                    />
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="row">
-                    <label class="col-lg-3 col-form-label">
-                      <span class="text-danger">*</span>Expiry Date:
-                    </label>
-                    <div class="col-lg-9">
-                      <input
-                        class="form-control"
-                        type="date"
-                        value="2021-06-18"
-                        id="date-input"
-                      />
-                    </div>
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <label class="col-lg-3 col-form-label">
-                    Coupon Applicable Stores
-                    <span class="text-danger">*</span> :
-                  </label>
-                  <div class="col-lg-9">
-                    <select
-                      multiple
-                      data-style="bg-white rounded-pill px-4 py-3 shadow-sm "
-                      class="selectpicker w-100"
-                    >
-                      <option>United Kingdom</option>
-                      <option>United States</option>
-                      <option>France</option>
-                      <option>Germany</option>
-                      <option>Italy</option>
-                    </select>
-                  </div>
-                </div>
+              <form onSubmit={handleSubmit}>
+                {inputs.map((input) => {
+                  if (
+                    input.input_type === "text" ||
+                    input.input_type === "number" ||
+                    input.input_type === "date"
+                  ) {
+                    return (
+                      <div class="form-group row">
+                        <label class="col-lg-3 col-form-label">
+                          {input.label_name} <span class="text-danger">*</span>{" "}
+                          :
+                        </label>
+                        <div class="col-lg-9">
+                          <input
+                            type={input.input_type}
+                            class="form-control"
+                            name={input.input_name}
+                            placeholder={input.placeholder}
+                            required=""
+                            disabled={
+                              input.input_name === "max_discount" ||
+                              input.input_name === "coupon_discount"
+                                ? data.discount_type
+                                  ? (data.discount_type === "1" &&
+                                      input.input_name === "max_discount") ||
+                                    (data.discount_type === "2" &&
+                                      input.input_name === "coupon_discount")
+                                    ? false
+                                    : true
+                                  : true
+                                : false
+                            }
+                            onChange={(e) => handleChange(e)}
+                          />
+                        </div>
+                      </div>
+                    );
+                  } else if (input.input_type === "select") {
+                    return (
+                      <div class="form-group row">
+                        <label class="col-lg-3 col-form-label">
+                          {input.input_name} <span class="text-danger">*</span>{" "}
+                          :
+                        </label>
+                        <div class="col-lg-9">
+                          <select
+                            id="defaultSelect"
+                            class="form-select"
+                            name={input.input_name}
+                            onChange={(e) => handleChange(e)}
+                          >
+                            <option>Default select</option>
+                            {input.options.map((option) => {
+                              return (
+                                <option value={option[0]}>{option[1]}</option>
+                              );
+                            })}
+                          </select>
+                        </div>
+                      </div>
+                    );
+                  } else if (input.input_type === "checkbox") {
+                    return (
+                      <div class="form-group row">
+                        <label class="col-lg-3 col-form-label">
+                          {input.label_name}
+                        </label>
+                        <div class="col-lg-9 d-flex align-items-center">
+                          <div class="checkbox checkbox-switchery">
+                            <input
+                              class="form-check-input"
+                              type={input.input_type}
+                              name={input.input_name}
+                              id="flexSwitchCheckChecked"
+                              checked={data.is_active}
+                              onClick={(e) =>
+                                setData({ ...data, is_active: !data.is_active })
+                              }
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    );
+                  }
+                })}
 
-                <div class="form-group row mt-3">
-                  <label class="col-lg-3 col-form-label">
-                    Max number of use in total
-                    <span class="text-danger">*</span> :
-                  </label>
-                  <div class="col-lg-9">
-                    <input
-                      type="text"
-                      class="form-control max_count"
-                      name="max_count"
-                      placeholder="Max number of use"
-                      required=""
-                    />
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <label class="col-lg-3 col-form-label">Min Subtotal</label>
-                  <div class="col-lg-9">
-                    <input
-                      type="text"
-                      class="form-control min_subtotal"
-                      name="min_subtotal"
-                      placeholder="Min subtotal required for coupon in $"
-                    />
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <label class="col-lg-3 col-form-label">
-                    Subtotal not reached message
-                  </label>
-                  <div class="col-lg-9">
-                    <input
-                      type="text"
-                      class="form-control"
-                      name=""
-                      placeholder="Subtotal not reached message"
-                    />
-                  </div>
-                </div>
-                <div class="form-group row">
-                  <label class="col-lg-3 col-form-label">
-                    Coupon User Type <span class="text-danger">*</span> :
-                  </label>
-                  <div class="col-lg-9">
-                    <select id="defaultSelect" class="form-select">
-                      <option>Default select</option>
-                      <option value="1">Unlimited times for all user</option>
-                      <option value="2">
-                        Once for new user for first order
-                      </option>
-                      <option value="3">Once per user</option>
-                      <option value="4">Define custom limit per user</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div class="form-group row">
-                  <label class="col-lg-3 col-form-label">Is Active?</label>
-                  <div class="col-lg-9 d-flex align-items-center">
-                    <div class="checkbox checkbox-switchery">
-                      <input
-                        class="form-check-input"
-                        type="checkbox"
-                        id="flexSwitchCheckChecked"
-                        checked=""
-                      />
-                    </div>
-                  </div>
-                </div>
                 <hr />
                 <div class="text-right float-right">
                   <button type="submit" class="btn btn-primary">
@@ -264,6 +287,7 @@ const Promotions = () => {
           </div>
         </div>
       </div>
+      {/* main page of promotions */}
       <div>
         <div className="layout-wrapper layout-content-navbar">
           <div className="layout-container">
